@@ -1,20 +1,17 @@
 title: "yriica notes"
-description: "rough, fast, public notes"
-# If you use a user site repo (USERNAME.github.io), leave baseurl empty.
-# If you use a project page (e.g., repo 'yriica'), set:
-# baseurl: "/yriica"
+description: "modern blog with Jekyll + Tailwind"
 baseurl: ""
-# Optional: If you later add a custom domain via Pages settings, set it here:
-# url: "https://example.com"
-
-# Use an official GitHub Pages theme via remote_theme (no Gemfile necessary)
-remote_theme: pages-themes/cayman@v0.2.0
-
+remote_theme: null
 plugins:
   - jekyll-remote-theme
-
-# Build settings
 markdown: kramdown
 kramdown:
   input: GFM
 permalink: /:year/:month/:day/:title/
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - postcss.config.js
+  - tailwind.config.js
+  - assets/css/input.css
