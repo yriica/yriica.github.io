@@ -24,23 +24,29 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Tailwind を先にビルド
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-
       - name: Install npm deps
         run: npm ci || npm i
-
       - name: Build CSS (Tailwind)
         run: npm run build:css
 
-      - name: Build with Jekyll
-        uses: actions/jekyll-build@v1
+      # Ruby/Jekyll を使って静的化
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          source: ./
-          destination: ./_site
+          ruby-version: '3.3'
+      - name: Install Jekyll + plugins
+        run: |
+          gem install jekyll -N
+          gem install jekyll-remote-theme -N
+          gem install kramdown-parser-gfm -N
+      - name: Build with Jekyll
+        run: jekyll build --source ./ --destination ./_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
