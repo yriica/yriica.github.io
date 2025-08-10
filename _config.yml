@@ -1,5 +1,5 @@
 title: "yriica notes"
-description: "modern blog with Jekyll + Tailwind"
+description: "lifelog & digital playground"
 baseurl: ""
 markdown: kramdown
 kramdown:

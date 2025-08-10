@@ -1,26 +1,28 @@
+---
+---
+{% capture title %}{{ page.title }}{% endcapture %}
+{% capture date_str %}{{ page.date | date: "%Y-%m-%d" }}{% endcapture %}
+
 <!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{{ page.title }} | {{ site.title }}</title>
-    <!-- フォント（お好みで） -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>{{ title }} | {{ site.title }}</title>
     <link href="{{ '/assets/css/main.css' | relative_url }}" rel="stylesheet" />
-    <meta name="color-scheme" content="light dark">
   </head>
   <body class="bg-white text-ink-900 antialiased">
     <header class="border-b border-ink-300/40">
       <div class="max-w-2xl mx-auto px-5 py-4 flex items-center justify-between">
-        <a href="{{ '/' | relative_url }}" class="font-medium tracking-tight hover:opacity-80">{{ site.title }}</a>
-        <nav class="text-sm text-ink-500">
-          <a href="{{ '/' | relative_url }}" class="hover:opacity-70">Thoughts</a>
-        </nav>
+        <a href="{{ '/' | relative_url }}" class="font-medium hover:opacity-80">{{ site.title }}</a>
+        <span class="text-xs text-ink-500 tracking-wide uppercase">Writing</span>
       </div>
     </header>
 
     <main class="max-w-2xl mx-auto px-5 py-10">
+      <h1 class="text-3xl font-semibold leading-tight tracking-tight mb-2">{{ title }}</h1>
+      <div class="text-sm text-ink-500 font-mono mb-8">{{ date_str }}</div>
+
       <article class="prose prose-neutral">
         {{ content }}
       </article>
@@ -28,7 +30,7 @@
 
     <footer class="border-t border-ink-300/40">
       <div class="max-w-2xl mx-auto px-5 py-10 text-sm text-ink-500">
-        © {{ site.time | date: "%Y" }} {{ site.title }}
+        <a href="{{ '/' | relative_url }}" class="underline underline-offset-2">← Back to Thoughts</a>
       </div>
     </footer>
   </body>
