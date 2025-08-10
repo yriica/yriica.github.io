@@ -1,7 +1,6 @@
 title: "yriica notes"
 description: "modern blog with Jekyll + Tailwind"
 baseurl: ""
-remote_theme: null
 plugins:
   - jekyll-remote-theme
 markdown: kramdown
