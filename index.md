@@ -5,6 +5,12 @@ title: Thoughts
 
 # Thoughts
 
+**DEBUG size:** {{ site.posts | size }}
+
+{% assign paths = site.posts | map: "path" %}
+**DEBUG paths:** {{ paths | join: ", " }}
+
+
 {% for post in site.posts %}
 <div class="py-5 border-b border-ink-300/40">
   <h2 class="m-0 text-xl font-medium leading-tight">
